@@ -1,5 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { mock } from '../mock-data/mock.js'
+import { homeStyles } from './homeStyles'
+
 export default function Home() {
   interface Transaction {
     id: number
@@ -19,7 +21,7 @@ export default function Home() {
       <Box>
         {mock.transactions.map((transaction: Transaction) => {
           return (
-            <Box border="1px solid red" p="20px" m="20px" key={transaction.id}>
+            <Box sx={homeStyles} key={transaction.id}>
               <p>{transaction?.deposit}</p>
               <p>{transaction?.description}</p>
               <p>{transaction?.date}</p>
