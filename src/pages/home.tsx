@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { mock } from '../mock-data/mock.js'
-import { homeStyles } from './homeStyles'
+import { homeStyles } from '../styles/homeStyles.jsx'
+import ProgressCircle from '../components/CircularProgress.js'
 
 export default function Home() {
   interface Transaction {
@@ -18,6 +19,7 @@ export default function Home() {
       <h2>{mock.account_holder}</h2>
       <h2>{mock.account_number}</h2>
       <h2>{mock.statement_period}</h2>
+      <ProgressCircle value={50} />
       <Box>
         {mock.transactions.map((transaction: Transaction) => {
           return (
