@@ -7,7 +7,9 @@ interface ProgressCircleProps {
 export default function ProgressCircle({ value }: ProgressCircleProps) {
   return (
     <>
-      <CircularProgress value={value} />
+      <CircularProgress value={value}>
+        <CircularProgressLabel>{value}%</CircularProgressLabel>
+      </CircularProgress>
     </>
   )
 }
