@@ -22,11 +22,12 @@ export default function Navbar() {
               {isDesktop ? (
                 <Flex alignItems="center" justify="space-between" flex="1">
                   <ButtonGroup variant="link" spacing="8">
-                    {['Home', 'Test'].map((item) => (
-                      <Link key={item} to={`/${item}`}>
-                        {item}
-                      </Link>
-                    ))}
+                    <Link to="/">
+                      Home
+                    </Link>
+                    <Link to="/upload">
+                      Upload a file
+                    </Link>
                   </ButtonGroup>
                   <HStack spacing="3">
                     <Button variant="ghost">
