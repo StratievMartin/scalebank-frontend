@@ -10,6 +10,10 @@ type CsvDataType = {
     linebreak: string
   }
 }
+type StatementResponse = {
+  data: string[][]
+  errors: any[]
+}
 
 export default function CSVUploader() {
   const [csvData, setCsvData] = useState<any[]>([])
@@ -21,7 +25,6 @@ export default function CSVUploader() {
       Papa.parse(file, {
         header: true,
         complete: (result: CsvDataType) => {
-          console.log(result.data)
           setCsvData(result.data)
         },
       })

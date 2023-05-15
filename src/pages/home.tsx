@@ -2,9 +2,11 @@ import { Box } from '@chakra-ui/react'
 import { homeStyles } from '../styles/homeStyles.jsx'
 import mock from '../mock-data/mock.json'
 import ProgressCircle from '../components/CircularProgress.tsx'
-import UiTable from '../components/Table.tsx'
+
 import { UiCard } from '../components/Card.tsx'
+
 export default function Home() {
+
   return (
     <>
       <Box display="flex">
@@ -26,7 +28,6 @@ export default function Home() {
         })}
       </Box>
       <ProgressCircle value={50} />
-      <UiTable />
     </>
   )
 }

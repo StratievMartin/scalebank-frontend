@@ -1,6 +1,6 @@
 import CSVUploader from '../components/CsvFormUpload'
 
-export default function fileUpload() {
+export default function FileUpload() {
   return (
     <>
       <CSVUploader />
