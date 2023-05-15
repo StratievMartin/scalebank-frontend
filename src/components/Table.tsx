@@ -2,7 +2,6 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
@@ -25,9 +24,6 @@ interface UiTableProps {
 }
 
 export default function UiTable({ tableName, head, body }: UiTableProps) {
-  console.log('head', head)
-  console.log('body', body)
-
   return (
     <>
       {body && head && (
@@ -45,7 +41,7 @@ export default function UiTable({ tableName, head, body }: UiTableProps) {
               {body.map((row, index) => (
                 <Tr key={index}>
                   {Object.keys(row).map((cell, cellIndex) => (
-                    <td key={`${index}-${cellIndex}`}>{row[cell]}</td>
+                    <Td key={`${index}-${cellIndex}`}>{row[cell]}</Td>
                   ))}
                 </Tr>
               ))}
