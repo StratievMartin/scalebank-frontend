@@ -12,11 +12,10 @@ type CsvDataType = {
 }
 
 export default function CSVUploader() {
-  const [csvData, setCsvData] = useState<string[][]>([])
+  const [csvData, setCsvData] = useState<any[]>([])
 
   const handleCsvUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0]
-
 
     if (file) {
       Papa.parse(file, {
@@ -33,7 +32,11 @@ export default function CSVUploader() {
     <div>
       <input type="file" onChange={handleCsvUpload} />
       {csvData.length > 0 && (
-        <UiTable tableName="CSV Data" head={csvData[0]} body={csvData}></UiTable>
+        <UiTable
+          tableName="CSV Data"
+          head={csvData[0]}
+          body={csvData}
+        ></UiTable>
       )}
     </div>
   )

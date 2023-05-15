@@ -30,27 +30,29 @@ export default function UiTable({ tableName, head, body }: UiTableProps) {
 
   return (
     <>
-      <TableContainer>
-        <Table variant="striped" colorScheme="teal">
-          <TableCaption>{tableName}</TableCaption>
-          <Thead>
-            <Tr>
-              {Object.keys(head).map((header) => (
-                <Th key={header}>{head[header]}</Th>
-              ))}
-            </Tr>
-          </Thead>
-          <Tbody>
-            {body.map((row, index) => (
-              <Tr key={index}>
-                {Object.keys(row).map((cell, cellIndex) => (
-                  <td key={`${index}-${cellIndex}`}>{row[cell]}</td>
+      {body && head && (
+        <TableContainer>
+          <Table variant="striped" colorScheme="teal">
+            <TableCaption>{tableName}</TableCaption>
+            <Thead>
+              <Tr>
+                {Object.keys(head).map((header) => (
+                  <Th key={header}>{head[header]}</Th>
                 ))}
               </Tr>
-            ))}
-          </Tbody>
-        </Table>
-      </TableContainer>
+            </Thead>
+            <Tbody>
+              {body.map((row, index) => (
+                <Tr key={index}>
+                  {Object.keys(row).map((cell, cellIndex) => (
+                    <td key={`${index}-${cellIndex}`}>{row[cell]}</td>
+                  ))}
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      )}
     </>
   )
 }
