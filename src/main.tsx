@@ -8,6 +8,7 @@ import Home from './pages/home.tsx'
 import FileUpload from './pages/fileUpload.tsx'
 import Navbar from './components/Navbar.tsx'
 import Footer from './components/Footer.tsx'
+import Profile from './pages/Profile.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -17,6 +18,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/upload" element={<FileUpload />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
