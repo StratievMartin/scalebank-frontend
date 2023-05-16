@@ -2,18 +2,18 @@ import axios from '../utils/axios'
 
 const apiUrl = `${import.meta.env.VITE_API_URL}`
 
-export function getAllAccounts() {
+export async function getAllAccounts() {
   return axios.get(`${apiUrl}`)
 }
-export function getAccount(id) {
+export async function getAccount(id) {
   return axios.get(`${apiUrl}/${id}`)
 }
-export function addAccount(data) {
+export async function addAccount(data) {
   return axios.post(`${apiUrl}/`, data)
 }
-export function updateAccount(id, data) {
+export async function updateAccount(id, data) {
   return axios.put(`${apiUrl}/${id}`, data)
 }
-export function deleteAccount(id) {
+export async function deleteAccount(id) {
   return axios.delete(`${apiUrl}/${id}`)
 }

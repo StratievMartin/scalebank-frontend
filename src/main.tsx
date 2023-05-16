@@ -7,6 +7,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Home from './pages/home.tsx'
 import Register from './pages/register.tsx'
 import Login from './pages/login.tsx'
+import FileUpload from './pages/fileUpload.tsx'
 import Navbar from './components/Navbar.tsx'
 import Footer from './components/Footer.tsx'
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/upload" element={<FileUpload />} />
         </Routes>
         <Footer />
       </BrowserRouter>
