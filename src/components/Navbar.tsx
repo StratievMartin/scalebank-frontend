@@ -36,6 +36,9 @@ export default function Navbar() {
                     <Button variant="primary">
                       <Link to="/register">Sign up</Link>
                     </Button>
+                    <Button variant="ghost">
+                      <Link to="/Profile">Profile</Link>
+                    </Button>
                   </HStack>
                 </Flex>
               ) : (
