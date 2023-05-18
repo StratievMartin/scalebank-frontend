@@ -18,21 +18,23 @@ import { useState } from 'react'
 export default function Login() {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
-  const [Uval,setUVal] = useState("")
-  const [Pval,setPVal] = useState("")
+  const initialValues = {
+    username: "",
+    password: "",
+  };
+  const [values, setValues] = useState(initialValues)
 
   const click = () => {
-    console.log(Uval,Pval)
+    console.log(values.username,values.password)
   }
-  const Uchange = event => {
-    setUVal(event.target.value)
-    
-  }
-  const Pchange = event => {
-    setPVal(event.target.value)
-    
-  }
+  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
 
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
 
   return (
     <>
@@ -49,8 +51,7 @@ export default function Login() {
           </Text>
           <VStack spacing={2} align="stretch">
             <Input
-            onChange={Uchange}
-            value = {Uval}
+            onChange={handleInputChange} value={values.username} name='username' 
               htmlSize={35}
               type="username"
               id="username"
@@ -59,8 +60,7 @@ export default function Login() {
             />
             <InputGroup size="md">
               <Input
-              onChange={Pchange}
-              value = {Pval}
+              onChange={handleInputChange} value={values.password} name='password' 
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
                 placeholder="Enter password"
