@@ -13,10 +13,26 @@ import {
   Button,
 } from '@chakra-ui/react'
 import React from 'react'
+import { useState } from 'react'
 
 export default function Login() {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
+  const [Uval,setUVal] = useState("")
+  const [Pval,setPVal] = useState("")
+
+  const click = () => {
+    console.log(Uval,Pval)
+  }
+  const Uchange = event => {
+    setUVal(event.target.value)
+    
+  }
+  const Pchange = event => {
+    setPVal(event.target.value)
+    
+  }
+
 
   return (
     <>
@@ -33,6 +49,8 @@ export default function Login() {
           </Text>
           <VStack spacing={2} align="stretch">
             <Input
+            onChange={Uchange}
+            value = {Uval}
               htmlSize={35}
               type="username"
               id="username"
@@ -41,6 +59,8 @@ export default function Login() {
             />
             <InputGroup size="md">
               <Input
+              onChange={Pchange}
+              value = {Pval}
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
                 placeholder="Enter password"
@@ -51,7 +71,7 @@ export default function Login() {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <Button colorScheme="teal" size="lg">
+            <Button onClick={click} colorScheme="teal" size="lg">
               Login
             </Button>
           </VStack>

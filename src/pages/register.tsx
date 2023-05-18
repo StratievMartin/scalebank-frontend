@@ -8,12 +8,43 @@ import {
   InputGroup,
   InputRightElement,
   Button,
+  AlertTitle,
 } from '@chakra-ui/react'
 import React from 'react'
+import { useState } from 'react'
 
 export default function Register() {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
+  const [Uval,setUVal] = useState("")
+  const [Pval,setPVal] = useState("")
+  const [CPval,setCPVal] = useState("")
+  const [Aval,setAVal] = useState("")
+  const [DBval,setDBVal] = useState("")
+  const click = () => {
+    console.log(Uval,Pval,CPval,Aval,DBval)
+  }
+  const Uchange = event => {
+    setUVal(event.target.value)
+    
+  }
+  const Pchange = event => {
+    setPVal(event.target.value)
+    
+  }
+  const CPchange = event => {
+    setCPVal(event.target.value)
+    
+  }
+  const Achange = event => {
+    setAVal(event.target.value)
+    
+  }
+  const DBchange = event => {
+    setDBVal(event.target.value)
+    
+  }
+  
 
   return (
     <>
@@ -30,6 +61,8 @@ export default function Register() {
           </Text>
           <VStack spacing={2} align="stretch">
             <Input
+            onChange={Uchange}
+            value = {Uval}
               htmlSize={35}
               type="username"
               id="username"
@@ -38,6 +71,8 @@ export default function Register() {
             />
             <InputGroup size="md">
               <Input
+               onChange={Pchange}
+               value = {Pval}
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
                 placeholder="Enter password"
@@ -50,6 +85,8 @@ export default function Register() {
             </InputGroup>
             <InputGroup size="md">
               <Input
+               onChange={CPchange}
+               value = {CPval}
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
                 placeholder="Confirm password"
@@ -60,6 +97,8 @@ export default function Register() {
               Personal Details
             </Text>
             <Input
+             onChange={Achange}
+             value = {Aval}
               htmlSize={10}
               type="int"
               id="age"
@@ -70,8 +109,11 @@ export default function Register() {
               Date of Birth
             </Text>
 
-            <Input placeholder="Date of Birth" size="md" type="date" />
-            <Button colorScheme="teal" size="lg">
+            <Input
+            onChange={DBchange}
+            value = {DBval}
+             placeholder="Date of Birth" size="md" type="date" />
+            <Button onClick={click} colorScheme="teal" size="lg">
               Register
             </Button>
           </VStack>
