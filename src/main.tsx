@@ -10,7 +10,8 @@ import Login from './pages/login.tsx'
 import FileUpload from './pages/fileUpload.tsx'
 import Navbar from './components/Navbar.tsx'
 import Footer from './components/Footer.tsx'
-import Profile from './pages/Profile.tsx'
+import Profile from './pages/profile.tsx'
+import Statement from './pages/statement.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -25,7 +26,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path="/register" element={<Register />} />
           <Route path="/upload" element={<FileUpload />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/Profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/statement/:id" element={<Statement />} />
         </Routes>
         <Footer />
       </BrowserRouter>
