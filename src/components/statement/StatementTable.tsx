@@ -19,6 +19,8 @@ interface UiTableProps {
 }
 
 export default function StatementTable({ tableName, data }: UiTableProps) {
+  console.log(data)
+
   return (
     <>
       {data && (
@@ -44,7 +46,7 @@ export default function StatementTable({ tableName, data }: UiTableProps) {
                 </Tr>
               </Thead>
               <Tbody>
-                {data?.transactions.map((transaction: Transaction) => (
+                {data?.transactions?.map((transaction: Transaction) => (
                   <Tr key={transaction._id}>
                     <Td>{transaction.description}</Td>
                     <Td>{transaction.withdrawal}</Td>
