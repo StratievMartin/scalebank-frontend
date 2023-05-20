@@ -9,7 +9,7 @@ const initialValues = {
   age: "",
 };
 
-export default function Form() {
+export default function Profile() {
   const [values, setValues] = useState(initialValues)
 
   const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
