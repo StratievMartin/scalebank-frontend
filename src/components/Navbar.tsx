@@ -18,27 +18,21 @@ export default function Navbar() {
       <Box as="section" pb={{ base: '12', md: '24' }}>
         <Box as="nav" bg="bg-surface" boxShadow="sm">
           <Container py={{ base: '4', lg: '5' }}>
-            <HStack spacing="10" justify="space-between">
+            <HStack spacing="10">
               {isDesktop ? (
                 <Flex alignItems="center" justify="space-between" flex="1">
                   <ButtonGroup variant="link" spacing="8">
-                    <Link to="/">
-                      Home
-                    </Link>
+                    <Link to="/">Home</Link>
                     <Link to="/upload">
-                      Upload a file
+                      <Box borderBottom="2px" borderColor="teal">
+                        Upload a file
+                      </Box>
                     </Link>
                   </ButtonGroup>
-                  <HStack spacing="3">
-                    <Button variant="ghost">
-                      <Link to="/login">Sign in</Link>
-                    </Button>
-                    <Button variant="primary">
-                      <Link to="/register">Sign up</Link>
-                    </Button>
-                    <Button variant="ghost">
-                      <Link to="/Profile">Profile</Link>
-                    </Button>
+                  <HStack spacing="8">
+                    <Link to="/login">Sign in</Link>
+                    <Link to="/register">Sign up</Link>
+                    <Link to="/Profile">Profile</Link>
                   </HStack>
                 </Flex>
               ) : (

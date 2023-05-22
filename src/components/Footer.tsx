@@ -1,14 +1,12 @@
-import { Box, Container } from '@chakra-ui/react'
-
-export default function Navbar() {
+import { Box, Flex } from '@chakra-ui/react'
+import { footerStyles } from '../styles/footerStyles'
+export default function Footer() {
   return (
     <>
-      <Box as="section" pt={{ base: '12', md: '24' }}>
-        <Container py={{ base: '4', lg: '5' }}>
-          <Box display="flex" justifyContent="end" as="nav" bg="bg-surface">
-            <p>All rights reserved @2023</p>
-          </Box>
-        </Container>
+      <Box sx={footerStyles}>
+        <Flex justifyContent="end">
+          <p>All rights reserved ®2023</p>
+        </Flex>
       </Box>
     </>
   )

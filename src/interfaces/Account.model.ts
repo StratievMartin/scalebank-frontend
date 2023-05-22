@@ -1,13 +1,14 @@
-export interface AccountData {
-  id: number
-  bank_name: string
-  account_holder: string
-  account_number: string
-  statement_period: string
+export interface BankStatement {
+  _id: string
+  bankName: string
+  accountHolder: string
+  accountNumber: string
+  statementPeriod: string
+  transactions: Transaction[]
 }
 
 export interface Transaction {
-  id: number
+  _id: string
   date: string
   description: string
   deposit: number | null

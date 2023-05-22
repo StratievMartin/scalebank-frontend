@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Papa from 'papaparse'
-import UiTable from './Table'
-
+import { addStatement } from '../services/statementService'
+import { BankStatement } from '../interfaces/Account.model'
+import { Button, Flex, Input, VStack } from '@chakra-ui/react'
+import StatementTable from './statement/StatementTable'
 type CsvDataType = {
   data: string[][]
   errors: any[]
@@ -10,21 +12,16 @@ type CsvDataType = {
     linebreak: string
   }
 }
-type StatementResponse = {
-  data: string[][]
-  errors: any[]
-}
 
 export default function CSVUploader() {
-  const [csvData, setCsvData] = useState<any[]>([])
-
+  const [csvData, setCsvData] = useState<BankStatement>()
   const handleCsvUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0]
 
     if (file) {
       Papa.parse(file, {
         header: true,
-        complete: (result: CsvDataType) => {
+        complete: (result) => {
           setCsvData(result.data)
         },
       })
@@ -32,15 +29,14 @@ export default function CSVUploader() {
   }
 
   return (
-    <div>
-      <input type="file" onChange={handleCsvUpload} />
-      {csvData.length > 0 && (
-        <UiTable
-          tableName="CSV Data"
-          head={csvData[0]}
-          body={csvData}
-        ></UiTable>
-      )}
-    </div>
+    <VStack spacing="10">
+      <div>
+        <Input type="file" onChange={handleCsvUpload} />
+        {csvData && <StatementTable data={csvData} />}
+      </div>
+      <Flex justifyContent="center">
+        {csvData && <Button onClick={() => addStatement(csvData)}>Send</Button>}
+      </Flex>
+    </VStack>
   )
 }
