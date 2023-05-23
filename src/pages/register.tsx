@@ -16,24 +16,24 @@ export default function Register() {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
   const initialValues = {
-    username: "",
-    password: "",
-    confirmpass: "",
-    date: "",
-    age: "",
-  };
+    username: '',
+    password: '',
+    confirmpass: '',
+    date: '',
+    age: '',
+  }
   const [values, setValues] = useState(initialValues)
   const click = () => {
-    console.log(values.username,values.password,values.age,values.date)
+    console.log(values.username, values.password, values.age, values.date)
   }
-  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
 
     setValues({
       ...values,
       [name]: value,
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -50,7 +50,9 @@ export default function Register() {
           </Text>
           <VStack spacing={2} align="stretch">
             <Input
-            onChange={handleInputChange} value={values.username} name='username'
+              onChange={handleInputChange}
+              value={values.username}
+              name="username"
               htmlSize={35}
               type="username"
               id="username"
@@ -59,7 +61,9 @@ export default function Register() {
             />
             <InputGroup size="md">
               <Input
-              onChange={handleInputChange} value={values.password} name='password'
+                onChange={handleInputChange}
+                value={values.password}
+                name="password"
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
                 placeholder="Enter password"
@@ -72,7 +76,9 @@ export default function Register() {
             </InputGroup>
             <InputGroup size="md">
               <Input
-              onChange={handleInputChange} value={values.confirmpass} name='confirmpass'
+                onChange={handleInputChange}
+                value={values.confirmpass}
+                name="confirmpass"
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
                 placeholder="Confirm password"
@@ -83,7 +89,9 @@ export default function Register() {
               Personal Details
             </Text>
             <Input
-            onChange={handleInputChange} value={values.age} name='age'
+              onChange={handleInputChange}
+              value={values.age}
+              name="age"
               htmlSize={10}
               type="int"
               id="age"
@@ -95,8 +103,13 @@ export default function Register() {
             </Text>
 
             <Input
-            onChange={handleInputChange} value={values.date} name='date'
-             placeholder="Date of Birth" size="md" type="date" />
+              onChange={handleInputChange}
+              value={values.date}
+              name="date"
+              placeholder="Date of Birth"
+              size="md"
+              type="date"
+            />
             <Button onClick={click} colorScheme="teal" size="lg">
               Register
             </Button>
