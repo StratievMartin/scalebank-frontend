@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
+import { loginStyle } from '../styles/loginStyle'
 
 export default function Login() {
   const [show, setShow] = React.useState(false)
@@ -39,7 +40,7 @@ export default function Login() {
   return (
     <>
       <Container>
-        <Box borderWidth="1px" borderRadius="1g" p={4}>
+        <Box sx={loginStyle}>
           <Text fontSize="1g" align="center">
             Log in
           </Text>
