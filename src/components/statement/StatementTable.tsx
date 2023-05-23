@@ -10,6 +10,7 @@ import {
   Box,
   Flex,
   VStack,
+  Text,
 } from '@chakra-ui/react'
 import { BankStatement, Transaction } from '../../interfaces/Account.model'
 
@@ -19,18 +20,18 @@ interface UiTableProps {
 }
 
 export default function StatementTable({ tableName, data }: UiTableProps) {
-  console.log(data)
-
   return (
     <>
       {data && (
         <VStack spacing="10">
           <Flex justifyContent="center" textAlign="center">
-            <Box>
-              <h2>{data?.accountHolder}</h2>
-              <h2>{data?.accountNumber}</h2>
-              <h2>{data?.bankName}</h2>
-              <h2>{data?.statementPeriod}</h2>
+            <Box border="1px solid teal" rounded="md" p="10">
+              <Text fontWeight="bold" fontSize="2xl" color="teal.500">
+                {data?.accountHolder}
+              </Text>
+              <Text>{data?.accountNumber}</Text>
+              <Text>{data?.bankName}</Text>
+              <Text>{data?.statementPeriod}</Text>
             </Box>
           </Flex>
           <TableContainer>
@@ -47,7 +48,7 @@ export default function StatementTable({ tableName, data }: UiTableProps) {
               </Thead>
               <Tbody>
                 {data?.transactions?.map((transaction: Transaction) => (
-                  <Tr key={transaction._id}>
+                  <Tr key={transaction._id || transaction.id}>
                     <Td>{transaction.description}</Td>
                     <Td>{transaction.withdrawal}</Td>
                     <Td>{transaction.balance}</Td>
