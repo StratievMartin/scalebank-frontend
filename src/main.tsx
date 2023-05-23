@@ -10,7 +10,7 @@ import Login from './pages/login.tsx'
 import FileUpload from './pages/fileUpload.tsx'
 import Navbar from './components/Navbar.tsx'
 import Footer from './components/Footer.tsx'
-import Profile from './pages/profile.tsx'
+import Profile from './pages/Profile.tsx'
 import Statement from './pages/statement.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

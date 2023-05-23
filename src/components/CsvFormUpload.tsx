@@ -13,7 +13,7 @@ type CsvDataType = {
   }
 }
 
-export default function CSVUploader() {
+export default function CsvFormUpload() {
   const [csvData, setCsvData] = useState<BankStatement>()
   const handleCsvUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0]

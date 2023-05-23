@@ -1,9 +1,9 @@
-import CSVUploader from '../components/CsvFormUpload'
+import CsvFormUpload from '../components/CsvFormUpload'
 
 export default function FileUpload() {
   return (
     <>
-      <CSVUploader />
+      <CsvFormUpload />
     </>
   )
 }
