@@ -17,6 +17,7 @@ export default function StatementsGrid() {
       <SimpleGrid
         spacing={8}
         templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+        mb={{ base: '24', md: '48' }}
       >
         {statements?.map((statement) => (
           <GridItem key={statement._id}>

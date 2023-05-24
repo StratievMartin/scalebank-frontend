@@ -1,41 +1,42 @@
 import {
-  ChakraProvider,
   Box,
   Text,
   Link,
   VStack,
-  Code,
-  Grid,
   Container,
   Input,
   InputGroup,
   InputRightElement,
   Button,
 } from '@chakra-ui/react'
-import React from 'react'
 import { useState } from 'react'
+import { useSignin } from '../hooks/useSignin'
+import { useNavigate } from 'react-router-dom'
 
+const initialValues = {
+  email: '',
+  password: '',
+}
 export default function Login() {
-  const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
-  const initialValues = {
-    username: "",
-    password: "",
-  };
   const [values, setValues] = useState(initialValues)
+  const [show, setShow] = useState(false)
+  const { signin } = useSignin()
+  const navigate = useNavigate()
 
-  const click = () => {
-    console.log(values.username,values.password)
-  }
-  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
 
     setValues({
       ...values,
       [name]: value,
-    });
-  };
+    })
+  }
+  const handleClick = () => setShow(!show)
 
+  const handleSubmit = async () => {
+    await signin(values)
+    navigate('/')
+  }
   return (
     <>
       <Container>
@@ -51,19 +52,22 @@ export default function Login() {
           </Text>
           <VStack spacing={2} align="stretch">
             <Input
-            onChange={handleInputChange} value={values.username} name='username' 
+              onChange={handleInputChange}
+              value={values.email}
+              name="email"
               htmlSize={35}
-              type="username"
-              id="username"
-              pb={2}
-              placeholder="Username"
+              type="email"
+              id="email"
+              placeholder="Enter an email"
             />
             <InputGroup size="md">
               <Input
-              onChange={handleInputChange} value={values.password} name='password' 
+                onChange={handleInputChange}
+                value={values.password}
+                name="password"
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
-                placeholder="Enter password"
+                placeholder="Enter a password"
               />
               <InputRightElement width="4.5rem">
                 <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -71,7 +75,7 @@ export default function Login() {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <Button onClick={click} colorScheme="teal" size="lg">
+            <Button onClick={handleSubmit} colorScheme="teal" size="lg">
               Login
             </Button>
           </VStack>

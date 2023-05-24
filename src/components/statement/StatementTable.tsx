@@ -19,8 +19,6 @@ interface UiTableProps {
 }
 
 export default function StatementTable({ tableName, data }: UiTableProps) {
-  console.log(data)
-
   return (
     <>
       {data && (
