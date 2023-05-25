@@ -1,11 +1,8 @@
 import {
-  ChakraProvider,
   Box,
   Text,
   Link,
   VStack,
-  Code,
-  Grid,
   Container,
   Input,
   InputGroup,
@@ -19,22 +16,22 @@ export default function Login() {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
   const initialValues = {
-    username: "",
-    password: "",
-  };
+    username: '',
+    password: '',
+  }
   const [values, setValues] = useState(initialValues)
 
   const click = () => {
-    console.log(values.username,values.password)
+    console.log(values.username, values.password)
   }
-  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
 
     setValues({
       ...values,
       [name]: value,
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -51,7 +48,9 @@ export default function Login() {
           </Text>
           <VStack spacing={2} align="stretch">
             <Input
-            onChange={handleInputChange} value={values.username} name='username' 
+              onChange={handleInputChange}
+              value={values.username}
+              name="username"
               htmlSize={35}
               type="username"
               id="username"
@@ -60,7 +59,9 @@ export default function Login() {
             />
             <InputGroup size="md">
               <Input
-              onChange={handleInputChange} value={values.password} name='password' 
+                onChange={handleInputChange}
+                value={values.password}
+                name="password"
                 pr="4.5rem"
                 type={show ? 'text' : 'password'}
                 placeholder="Enter password"
