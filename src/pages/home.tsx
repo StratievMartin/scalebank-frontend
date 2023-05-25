@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import StatementsGrid from '../components/statement/StatementsGrid.tsx'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,7 @@ export default function Home() {
     <>
       {!user ? (
         <Flex justifyContent="center">
-          <Text>
+          <Box>
             Welcome to{' '}
             <Text display="inline" color="teal.500">
               Scalebank
@@ -18,7 +18,7 @@ export default function Home() {
               In order to browse our statements you need to{' '}
               <Link to="/login">sign up</Link> first.
             </Text>
-          </Text>
+          </Box>
         </Flex>
       ) : (
         <StatementsGrid />
