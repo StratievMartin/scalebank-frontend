@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
+import { registerStyle } from '../styles/registerStyles'
 
 export default function Register() {
   const [show, setShow] = React.useState(false)
@@ -38,7 +39,7 @@ export default function Register() {
   return (
     <>
       <Container>
-        <Box borderWidth="1px" borderRadius="1g" p={4}>
+        <Box sx={registerStyle}>
           <Text fontSize="1g" align="center">
             Create account
           </Text>
