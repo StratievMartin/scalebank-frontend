@@ -2,6 +2,13 @@ import axios, { AxiosResponse } from 'axios'
 
 const apiUrl: string = import.meta.env.VITE_API_URL as string
 
+export async function signIn(user: object): Promise<AxiosResponse> {
+  return axios.post(`${apiUrl}/signIn`, user)
+}
+export async function signUp(user: object): Promise<AxiosResponse> {
+  return axios.post(`${apiUrl}/signUp`, user)
+}
+
 export async function getAllAccounts(): Promise<AxiosResponse> {
   return axios.get(apiUrl)
 }
