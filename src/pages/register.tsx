@@ -12,6 +12,7 @@ import {
 import React from 'react'
 import { useState } from 'react'
 import { useSignup } from '../hooks/useSignup'
+import { registerStyle } from '../styles/registerStyles'
 
 export default function Register() {
   const initialValues = {
@@ -42,7 +43,7 @@ export default function Register() {
   return (
     <>
       <Container>
-        <Box borderWidth="1px" borderRadius="1g" p={4}>
+        <Box sx={registerStyle}>
           <Text fontSize="1g" align="center">
             Create account
           </Text>

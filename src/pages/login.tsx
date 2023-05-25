@@ -12,6 +12,7 @@ import {
 import { useState } from 'react'
 import { useSignin } from '../hooks/useSignin'
 import { useNavigate } from 'react-router-dom'
+import { loginStyle } from '../styles/loginStyle'
 
 const initialValues = {
   email: '',
@@ -40,7 +41,7 @@ export default function Login() {
   return (
     <>
       <Container>
-        <Box borderWidth="1px" borderRadius="1g" p={4}>
+        <Box sx={loginStyle}>
           <Text fontSize="1g" align="center">
             Log in
           </Text>
