@@ -1,18 +1,12 @@
-// import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
 import { signIn } from '../services/accountService'
 import { useCookies } from 'react-cookie'
 
 export const useSignin = () => {
-  // const [error, setError] = useState(null)
-  // const [isLoading, setIsLoading] = useState(null)
   const [cookies, setCookie] = useCookies()
   const { dispatch } = useAuthContext()
 
   const signin = async (values) => {
-    // setIsLoading(true)
-    // setError(null)
-
     try {
       let { data } = await signIn(values)
       let { accessToken, refreshToken } = data
@@ -29,5 +23,4 @@ export const useSignin = () => {
     }
   }
   return { signin }
-  // , isLoading, errror
 }

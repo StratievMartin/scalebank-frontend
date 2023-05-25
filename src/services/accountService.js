@@ -1,11 +1,7 @@
 import axios from '../utils/axios'
 
 const apiUrl = `${import.meta.env.VITE_API_URL}`
-// export const setAuthToken = (token) => {
-//   if (token) {
-//     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-//   } else delete axios.defaults.headers.common['Authorization']
-// }
+
 export async function signIn(user) {
   return axios.post(`${apiUrl}/signIn`, user)
 }
