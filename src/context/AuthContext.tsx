@@ -1,24 +1,11 @@
-import React, { createContext, useReducer, useEffect, ReactNode } from 'react'
+import { createContext, useReducer, useEffect } from 'react'
 import { useCookies } from 'react-cookie'
-
-type User = {
-  email: string
-  accessToken: string
-}
-
-type AuthState = {
-  user: User | null
-}
-
-type AuthAction = {
-  type: 'LOGIN' | 'LOGOUT'
-  payload?: User
-}
-
-type AuthContextType = {
-  dispatch: React.Dispatch<AuthAction>
-} & AuthState
-
+import {
+  AuthAction,
+  AuthContextProviderProps,
+  AuthState,
+  AuthContextType,
+} from '../interfaces/AuthContext.model'
 export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export const authReducer = (
@@ -35,10 +22,6 @@ export const authReducer = (
   }
 }
 
-type AuthContextProviderProps = {
-  children: ReactNode
-}
-
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const initialState: AuthState = {
     user: null,
@@ -46,7 +29,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const [cookies] = useCookies()
 
   useEffect(() => {
-    if (cookies) {
+    if (cookies.user) {
       dispatch({ type: 'LOGIN', payload: cookies.user })
     }
   }, [])

@@ -7,7 +7,6 @@ export const useSignup = () => {
   const { dispatch } = useAuthContext()
 
   const signup = async (values) => {
-
     try {
       let { data } = await signUp(values)
       let { accessToken, refreshToken } = data
